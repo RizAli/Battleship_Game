@@ -3,7 +3,7 @@ require 'ship'
 
 describe Board do
 		
-		let (:board) {Board.new}
+		let (:board) {Board.new(4)}
 		# let (:ship)	 {Ship.new}
 		let (:ship) {double :ship}
 
@@ -17,25 +17,15 @@ describe Board do
 			expect(board).to respond_to(:hit)
 		end
 
-		it "can initialize with an empty board" do 
-			expect(board.content).to eq(:empty)
+		it "can initialize with 4 cells in an array" do 
+			expect(board.content).to eq([:empty, :empty, :empty, :empty])
 		end
-
-		it "can initialize with two cells" do
-			expect(board.content).to eq(:empty)
-			expect(board.content1).to eq(:empty)
-		end
-
-
-
 
 		it 'can tell a ship it was a hit' do 
 			board.add_ship(ship)
 			expect(ship).to receive(:hit)
 			board.hit
 		end
-
-
 
 end
 

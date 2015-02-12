@@ -1,18 +1,18 @@
 class Board
 
-	def initialize
-		@content = :empty
-		@content1 = :empty
+	def initialize(size)
+		@size = size
+		@content = []
+		1.upto(size).each do
+			@content << :empty
+		end
 	end
 
 	def content
 		@content
 	end
 
-	def content1
-		@content1
-	end
-
+	
 	def add_ship(ship)
 		@content = ship
 	end
